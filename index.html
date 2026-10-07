@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Crumb & Cream Bakery | Freshly Baked With Love</title>
+<meta name="description" content="Fresh cakes, pastries, muffins and cookies. Order online from Crumb & Cream Bakery.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--cream:#fffaf3;--paper:#fff;--brown:#4b2e25;--brown2:#70483a;--rose:#d88978;--gold:#c59b5d;--soft:#f7e9df;--muted:#806f67;--line:#eadbd1;--shadow:0 15px 45px #4b2e2515}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--cream);color:var(--brown);font-family:Montserrat,sans-serif}a{text-decoration:none;color:inherit}button,input,textarea,select{font:inherit}
+.container{width:min(1180px,calc(100% - 36px));margin:auto}
+.top{background:var(--brown);color:#fff;text-align:center;padding:8px;font-size:11px;letter-spacing:1.5px}
+header{position:sticky;top:0;z-index:100;background:#fffdf9ee;backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+nav{height:76px;display:flex;align-items:center;justify-content:space-between}
+.logo{font:34px "DM Serif Display";color:var(--brown)}.logo span{color:var(--rose)}
+.navlinks{display:flex;gap:28px;font-size:13px;font-weight:700}.navlinks a:hover{color:var(--rose)}
+.nav-actions{display:flex;align-items:center;gap:10px}.cart-btn,.menu{border:0;background:transparent;cursor:pointer;color:var(--brown)}.cart-btn{font-weight:800}.cart-count{background:var(--rose);color:#fff;border-radius:20px;padding:3px 7px;font-size:10px}
+.menu{display:none;font-size:25px}
+.hero{min-height:650px;background:linear-gradient(90deg,#fffaf3 0%,#fffaf3e8 40%,#fffaf300 70%),url("https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=1800&q=85") center/cover;display:flex;align-items:center}
+.hero-copy{max-width:560px;padding:80px 0}.eyebrow{text-transform:uppercase;letter-spacing:3px;font-size:11px;font-weight:800;color:var(--rose)}h1,h2,h3{font-family:"DM Serif Display",serif;font-weight:400}h1{font-size:clamp(54px,7vw,88px);line-height:.98;margin:16px 0}h1 em{color:var(--rose);font-style:normal}.hero p{font-size:17px;line-height:1.8;color:var(--muted);max-width:500px}
+.btn{display:inline-flex;align-items:center;justify-content:center;border:1px solid var(--brown);padding:14px 23px;border-radius:5px;font-weight:800;font-size:12px;cursor:pointer;transition:.25s}.btn.primary{background:var(--brown);color:#fff}.btn:hover{transform:translateY(-2px);box-shadow:var(--shadow)}
+.hero-actions{display:flex;gap:10px;margin-top:25px}
+section{padding:90px 0}.section-head{text-align:center;max-width:680px;margin:0 auto 40px}.section-head h2{font-size:50px;margin:10px 0}.section-head p{color:var(--muted);line-height:1.7}
+.categories{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}.cat{min-height:240px;border-radius:15px;overflow:hidden;position:relative;background:#eee}.cat img{width:100%;height:100%;object-fit:cover;transition:.5s}.cat:hover img{transform:scale(1.06)}.cat:after{content:"";position:absolute;inset:45% 0 0;background:linear-gradient(transparent,#000b)}.cat div{position:absolute;z-index:2;bottom:20px;left:20px;color:#fff;font:28px "DM Serif Display"}
+.shopbar{display:flex;justify-content:center;gap:8px;flex-wrap:wrap;margin-bottom:35px}.filter{background:#fff;border:1px solid var(--line);padding:10px 18px;border-radius:30px;cursor:pointer;color:var(--brown);font-weight:700;font-size:12px}.filter.active,.filter:hover{background:var(--brown);color:#fff}
+.products{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}.product{background:#fff;border:1px solid var(--line);border-radius:12px;overflow:hidden;box-shadow:0 8px 25px #4b2e2508}.product-img{height:245px;position:relative;background:#eee}.product-img img{width:100%;height:100%;object-fit:cover}.badge{position:absolute;top:12px;left:12px;background:var(--rose);color:#fff;padding:6px 9px;font-size:9px;font-weight:800;text-transform:uppercase;border-radius:3px}.product-info{padding:17px}.product-info h3{font-size:25px;margin:3px 0}.type{font-size:10px;text-transform:uppercase;letter-spacing:1.5px;color:#9a877e}.price{font-weight:800;margin:10px 0}.add{width:100%;background:var(--soft);border:0;padding:11px;border-radius:5px;color:var(--brown);font-weight:800;cursor:pointer}.add:hover{background:var(--brown);color:#fff}
+.custom{background:var(--brown);color:#fff}.custom-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}.custom h2{font-size:58px;margin:12px 0}.custom p{color:#d9c7bd;line-height:1.8}.custom img{width:100%;height:480px;object-fit:cover;border-radius:18px}.custom .btn{border-color:#fff;color:#fff}
+.about{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center}.about img{width:100%;height:480px;object-fit:cover;border-radius:18px}.about h2{font-size:55px;margin:12px 0}.about p{color:var(--muted);line-height:1.9}
+.reviews{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.review{background:#fff;padding:30px;border:1px solid var(--line);border-radius:12px}.stars{color:#c59b5d;letter-spacing:3px}.review p{line-height:1.8;color:var(--muted);font-size:14px}.review b{font-size:12px}
+.gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}.gallery img{width:100%;aspect-ratio:1;object-fit:cover;border-radius:8px}
+.contact{background:var(--soft)}.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:50px}.contact h2{font-size:55px;margin:10px 0}.contact p{color:var(--muted);line-height:1.8}.info{margin-top:25px;display:grid;gap:12px}.info div{background:#fff;padding:15px;border-radius:8px}
+footer{background:#2f1d18;color:#eadbd1;padding:50px 0}.footer-grid{display:flex;justify-content:space-between;gap:30px}.footer-logo{font:34px "DM Serif Display";color:#fff}.footer-small{font-size:11px;color:#bca9a0;margin-top:8px}
+.cart-panel{position:fixed;right:-430px;top:0;width:min(410px,100%);height:100vh;background:#fff;z-index:1001;box-shadow:-15px 0 50px #0002;padding:25px;transition:.35s;display:flex;flex-direction:column}.cart-panel.open{right:0}.cart-head{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--line);padding-bottom:15px}.cart-items{flex:1;overflow:auto;padding:15px 0}.cart-row{display:grid;grid-template-columns:65px 1fr auto;gap:10px;margin-bottom:15px;align-items:center}.cart-row img{width:65px;height:65px;object-fit:cover;border-radius:8px}.cart-row h4{margin:0;font-size:13px}.cart-row small{color:var(--muted)}.qty button{border:1px solid var(--line);background:#fff;width:24px;height:24px;cursor:pointer}.cart-total{border-top:1px solid var(--line);padding-top:15px;display:flex;justify-content:space-between;font-weight:800}.checkout{margin-top:12px;width:100%}.overlay{display:none;position:fixed;inset:0;background:#0006;z-index:1000}.overlay.show{display:block}
+.modal{display:none;position:fixed;z-index:1100;inset:0;place-items:center;padding:20px}.modal.show{display:grid}.modal-box{background:#fff;padding:30px;border-radius:15px;width:min(560px,100%);max-height:90vh;overflow:auto}.modal-box h2{font-size:40px;margin:0 0 20px}.form{display:grid;gap:12px}.form input,.form textarea,.form select{width:100%;border:1px solid var(--line);padding:12px;border-radius:6px;background:#fff}.form textarea{min-height:100px}.close{float:right;border:0;background:none;font-size:25px;cursor:pointer}
+.toast{position:fixed;bottom:25px;left:50%;transform:translate(-50%,20px);background:var(--brown);color:#fff;padding:13px 20px;border-radius:30px;opacity:0;transition:.3s;z-index:1200}.toast.show{opacity:1;transform:translate(-50%,0)}
+@media(max-width:900px){.navlinks{display:none}.menu{display:block}.categories,.products{grid-template-columns:repeat(2,1fr)}.custom-grid,.about,.contact-grid{grid-template-columns:1fr}.reviews{grid-template-columns:1fr}.gallery{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:560px){nav{height:68px}.logo{font-size:28px}.hero{min-height:610px;background:linear-gradient(90deg,#fffaf3f5,#fffaf3b0),url("https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=1200&q=80") center/cover}.hero-copy{padding:50px 0}.hero-actions{flex-direction:column;align-items:flex-start}.categories,.products{grid-template-columns:1fr 1fr;gap:10px}.cat{min-height:180px}.cat div{font-size:22px}.product-img{height:190px}.section-head h2,.custom h2,.about h2,.contact h2{font-size:42px}.custom img,.about img{height:330px}.gallery{grid-template-columns:repeat(2,1fr)}section{padding:65px 0}.footer-grid{display:block}.footer-grid>div+div{margin-top:20px}}
+</style>
+</head>
+<body>
+<div class="top">FRESH BAKES DAILY · SAME-DAY ORDERS AVAILABLE · CUSTOM CAKES BY REQUEST</div>
+<header><div class="container"><nav>
+<a class="logo" href="#home">Crumb <span>&</span> Cream</a>
+<div class="navlinks"><a href="#shop">Shop</a><a href="#cakes">Cakes</a><a href="#about">Our Story</a><a href="#reviews">Reviews</a><a href="#contact">Contact</a></div>
+<div class="nav-actions"><button class="cart-btn" onclick="openCart()">Cart <span class="cart-count" id="count">0</span></button><button class="menu" onclick="mobileNav()">☰</button></div>
+</nav><div id="mobile" style="display:none;padding:0 0 18px;gap:14px;flex-direction:column;font-weight:700"><a href="#shop">Shop</a><a href="#cakes">Cakes</a><a href="#about">Our Story</a><a href="#reviews">Reviews</a><a href="#contact">Contact</a></div></div></header>
+
+<main id="home">
+<section class="hero"><div class="container"><div class="hero-copy"><div class="eyebrow">Handcrafted bakery · Bengaluru</div><h1>Made fresh.<br>Made with <em>love.</em></h1><p>Beautiful cakes, buttery pastries, soft muffins and irresistible cookies — baked in small batches and made for life's sweetest moments.</p><div class="hero-actions"><a class="btn primary" href="#shop">Shop the bakery</a><a class="btn" href="#cakes">Order a custom cake</a></div></div></div></section>
+
+<section><div class="container"><div class="section-head"><div class="eyebrow">Something for every craving</div><h2>Shop by category</h2><p>From morning treats to celebration centrepieces, find your favourite freshly baked goodness.</p></div>
+<div class="categories">
+<a class="cat" href="#shop" onclick="filterProducts('cake')"><img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=700&q=80"><div>Birthday Cakes</div></a>
+<a class="cat" href="#shop" onclick="filterProducts('pastry')"><img src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?auto=format&fit=crop&w=700&q=80"><div>Pastries</div></a>
+<a class="cat" href="#shop" onclick="filterProducts('muffin')"><img src="https://images.unsplash.com/photo-1607958996333-41aef7caefaa?auto=format&fit=crop&w=700&q=80"><div>Muffins</div></a>
+<a class="cat" href="#shop" onclick="filterProducts('cookie')"><img src="https://images.unsplash.com/photo-1499636136210-6f4ee915583e?auto=format&fit=crop&w=700&q=80"><div>Cookies</div></a>
+</div></div></section>
+
+<section id="shop"><div class="container"><div class="section-head"><div class="eyebrow">Fresh from the oven</div><h2>Our favourites</h2><p>Order online and add your favourites to the cart.</p></div><div class="shopbar"><button class="filter active" onclick="filterProducts('all',this)">All</button><button class="filter" onclick="filterProducts('cake',this)">Cakes</button><button class="filter" onclick="filterProducts('pastry',this)">Pastries</button><button class="filter" onclick="filterProducts('muffin',this)">Muffins</button><button class="filter" onclick="filterProducts('cookie',this)">Cookies</button></div><div class="products" id="products"></div></div></section>
+
+<section id="cakes" class="custom"><div class="container custom-grid"><div><div class="eyebrow">Your celebration, your cake</div><h2>Dream it.<br>We'll bake it.</h2><p>Tell us about your occasion, preferred flavour, size, colours and design. Our team will help create a cake that feels uniquely yours.</p><a class="btn" href="#" onclick="openCustom();return false">Request a custom cake</a></div><img src="https://images.unsplash.com/photo-1535254973040-607b474cb50d?auto=format&fit=crop&w=1000&q=85" alt="Custom celebration cake"></div></section>
+
+<section id="about"><div class="container about"><img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=1000&q=85" alt="Fresh bakery bread"><div><div class="eyebrow">Our story</div><h2>A little bakery with a big heart.</h2><p>Crumb & Cream began with a simple idea: make everyday baking feel special. We use quality ingredients, bake in small batches and put care into every detail — from the first whisk to the final sprinkle.</p><p>Whether it's a coffee-time cookie or a birthday cake for twenty, we believe good food should make people pause, smile and share.</p></div></div></section>
+
+<section id="reviews"><div class="container"><div class="section-head"><div class="eyebrow">Sweet words</div><h2>Loved by our customers</h2></div><div class="reviews"><div class="review"><div class="stars">★★★★★</div><p>“The chocolate cake was beautiful and tasted even better. Everyone at the party asked where it was from!”</p><b>— Ananya</b></div><div class="review"><div class="stars">★★★★★</div><p>“The croissants are flaky, buttery and honestly addictive. My new weekend ritual.”</p><b>— Rohan</b></div><div class="review"><div class="stars">★★★★★</div><p>“Ordered cookies for our office event and they disappeared in minutes. Fantastic packaging too.”</p><b>— Meera</b></div></div></div></section>
+
+<section><div class="container"><div class="section-head"><div class="eyebrow">From our kitchen</div><h2>Sweet moments</h2></div><div class="gallery">
+<img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=500&q=80"><img src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?auto=format&fit=crop&w=500&q=80"><img src="https://images.unsplash.com/photo-1607958996333-41aef7caefaa?auto=format&fit=crop&w=500&q=80"><img src="https://images.unsplash.com/photo-1499636136210-6f4ee915583e?auto=format&fit=crop&w=500&q=80"><img src="https://images.unsplash.com/photo-1486427944299-d1955d23e34d?auto=format&fit=crop&w=500&q=80"><img src="https://images.unsplash.com/photo-1571115177098-24ec42ed204d?auto=format&fit=crop&w=500&q=80"><img src="https://images.unsplash.com/photo-1551024506-0bccd828d307?auto=format&fit=crop&w=500&q=80"><img src="https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?auto=format&fit=crop&w=500&q=80">
+</div></div></section>
+
+<section id="contact" class="contact"><div class="container contact-grid"><div><div class="eyebrow">Come say hello</div><h2>Let's make something delicious.</h2><p>Visit the bakery, call us for an order, or send a message for custom cakes and bulk orders.</p><div class="info"><div>📍 Bengaluru, Karnataka</div><div>📞 +91 90000 00000</div><div>✉ hello@crumbandcream.com</div><div>🕘 Mon–Sun · 9:00 AM – 8:00 PM</div></div></div><div><div class="section-head" style="text-align:left;margin:0 0 20px"><div class="eyebrow">Quick enquiry</div><h2 style="font-size:38px">Have a question?</h2></div><form class="form" onsubmit="sendEnquiry(event)"><input required placeholder="Your name"><input required type="email" placeholder="Email address"><input placeholder="Phone number"><textarea required placeholder="How can we help?"></textarea><button class="btn primary" type="submit">Send enquiry</button></form></div></div></section>
+</main>
+
+<footer><div class="container footer-grid"><div><div class="footer-logo">Crumb & Cream</div><div class="footer-small">Freshly baked · Thoughtfully made</div></div><div><div>© 2026 Crumb & Cream Bakery</div><div class="footer-small">Instagram · WhatsApp · Facebook</div></div></div></footer>
+
+<div class="overlay" id="overlay" onclick="closeCart()"></div>
+<aside class="cart-panel" id="cart"><div class="cart-head"><h2 style="font:32px 'DM Serif Display';margin:0">Your Basket</h2><button class="close" onclick="closeCart()">×</button></div><div class="cart-items" id="cartItems"></div><div class="cart-total"><span>Total</span><span id="total">₹0</span></div><button class="btn primary checkout" onclick="goToPayment()">Proceed to checkout</button></aside>
+
+<div class="modal" id="checkoutModal"><div class="modal-box"><button class="close" onclick="closeModal('checkoutModal')">×</button><h2>Complete your order</h2><form class="form" onsubmit="placeOrder(event)"><input required placeholder="Full name"><input required type="tel" placeholder="Phone number"><input required type="email" placeholder="Email"><textarea required placeholder="Delivery address"></textarea><select required><option value="">Preferred payment</option><option>Cash / UPI on delivery</option><option>Online payment</option></select><button class="btn primary">Place order</button></form></div></div>
+
+<div class="modal" id="customModal"><div class="modal-box"><button class="close" onclick="closeModal('customModal')">×</button><h2>Custom cake enquiry</h2><form class="form" onsubmit="customSubmit(event)"><input required placeholder="Your name"><input required type="tel" placeholder="Phone number"><input required type="date"><select required><option value="">Cake flavour</option><option>Chocolate</option><option>Vanilla</option><option>Red Velvet</option><option>Butterscotch</option><option>Other</option></select><input placeholder="Approx. number of servings"><textarea required placeholder="Describe your cake idea, colours, message, theme..."></textarea><button class="btn primary">Send cake enquiry</button></form></div></div>
+
+</div>
+<div class="toast" id="toast"></div>
+
+<script>
+const products=[
+{id:1,name:"Classic Chocolate Cake",cat:"cake",price:850,img:"https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=700&q=80",badge:"Best Seller"},
+{id:2,name:"Red Velvet Celebration Cake",cat:"cake",price:1050,img:"https://images.unsplash.com/photo-1586788224331-947f68671cf1?auto=format&fit=crop&w=700&q=80",badge:"Popular"},
+{id:3,name:"Butter Croissant",cat:"pastry",price:140,img:"https://images.unsplash.com/photo-1555507036-ab1f4038808a?auto=format&fit=crop&w=700&q=80",badge:"Fresh"},
+{id:4,name:"Almond Danish",cat:"pastry",price:180,img:"https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=700&q=80",badge:""},
+{id:5,name:"Blueberry Muffin",cat:"muffin",price:120,img:"https://images.unsplash.com/photo-1607958996333-41aef7caefaa?auto=format&fit=crop&w=700&q=80",badge:"Fresh"},
+{id:6,name:"Chocolate Chip Muffin",cat:"muffin",price:110,img:"https://images.unsplash.com/photo-1558303053-0e1f8f5a4f7a?auto=format&fit=crop&w=700&q=80",badge:""},
+{id:7,name:"Chocolate Chip Cookies",cat:"cookie",price:220,img:"https://images.unsplash.com/photo-1499636136210-6f4ee915583e?auto=format&fit=crop&w=700&q=80",badge:"Best Seller"},
+{id:8,name:"Butter Shortbread Box",cat:"cookie",price:260,img:"https://images.unsplash.com/photo-1558961363-fa8fdf82db35?auto=format&fit=crop&w=700&q=80",badge:"Gift Pick"}
+];
+let cart=JSON.parse(localStorage.getItem("bakeryCart")||"[]");
+function money(n){return "₹"+n.toLocaleString("en-IN")}
+function renderProducts(filter="all"){
+ const el=document.getElementById("products");let list=filter==="all"?products:products.filter(p=>p.cat===filter);
+ el.innerHTML=list.map(p=>`<article class="product"><div class="product-img">${p.badge?`<span class="badge">${p.badge}</span>`:""}<img src="${p.img}" alt="${p.name}" loading="lazy"></div><div class="product-info"><div class="type">${p.cat}</div><h3>${p.name}</h3><div class="price">${money(p.price)}</div><button class="add" onclick="addCart(${p.id})">Add to basket +</button></div></article>`).join("");
+}
+function filterProducts(cat,btn){renderProducts(cat);if(btn){document.querySelectorAll(".filter").forEach(x=>x.classList.remove("active"));btn.classList.add("active")}else{document.querySelectorAll(".filter").forEach(x=>x.classList.remove("active"));}}
+function addCart(id){let x=cart.find(i=>i.id===id);if(x)x.qty++;else cart.push({id,qty:1});save();toast("Added to your basket");}
+function save(){localStorage.setItem("bakeryCart",JSON.stringify(cart));renderCart()}
+function renderCart(){let n=cart.reduce((a,x)=>a+x.qty,0);document.getElementById("count").textContent=n;let total=0;const el=document.getElementById("cartItems");el.innerHTML=cart.length?cart.map(x=>{let p=products.find(p=>p.id===x.id);total+=p.price*x.qty;return `<div class="cart-row"><img src="${p.img}"><div><h4>${p.name}</h4><small>${money(p.price)} each</small></div><div class="qty"><button onclick="change(${x.id},-1)">−</button> ${x.qty} <button onclick="change(${x.id},1)">+</button></div></div>`}).join(""):`<p style="color:#88776e;text-align:center;margin-top:50px">Your basket is waiting for something delicious.</p>`;document.getElementById("total").textContent=money(total)}
+function change(id,d){let x=cart.find(i=>i.id===id);x.qty+=d;if(x.qty<=0)cart=cart.filter(i=>i.id!==id);save()}
+function openCart(){document.getElementById("cart").classList.add("open");document.getElementById("overlay").classList.add("show")}
+function closeCart(){document.getElementById("cart").classList.remove("open");document.getElementById("overlay").classList.remove("show")}
+function checkout(){if(!cart.length){toast("Your basket is empty");return}closeCart();document.getElementById("checkoutModal").classList.add("show")}
+function placeOrder(e){e.preventDefault();cart=[];save();closeModal("checkoutModal");toast("Thank you! Your order enquiry has been received.");}
+function openCustom(){document.getElementById("customModal").classList.add("show")}
+function customSubmit(e){e.preventDefault();closeModal("customModal");toast("Cake enquiry sent! We'll contact you shortly.");}
+function closeModal(id){document.getElementById(id).classList.remove("show")}
+function toast(t){let x=document.getElementById("toast");x.textContent=t;x.classList.add("show");setTimeout(()=>x.classList.remove("show"),2500)}
+function mobileNav(){let x=document.getElementById("mobile");x.style.display=x.style.display==="flex"?"none":"flex"}
+
+function goToPayment(){
+  if(!cart.length){toast("Your basket is empty");return}
+  window.location.href="payment.html";
+}
+function sendEnquiry(e){e.preventDefault();toast("Thanks! We'll get back to you soon.");e.target.reset()}
+renderProducts();renderCart();
+</script>
+</body>
+</html>

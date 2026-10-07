@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Checkout | Crumb & Cream Bakery</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--cream:#fffaf3;--white:#fff;--brown:#4b2e25;--rose:#d88978;--soft:#f7e9df;--muted:#806f67;--line:#eadbd1}
+*{box-sizing:border-box}body{margin:0;background:var(--cream);color:var(--brown);font-family:Montserrat,sans-serif}
+.top{background:var(--brown);color:white;text-align:center;padding:9px;font-size:11px;letter-spacing:1.5px}
+header{background:#fffdf9;border-bottom:1px solid var(--line)}
+.container{width:min(1100px,calc(100% - 32px));margin:auto}
+nav{height:78px;display:flex;align-items:center;justify-content:space-between}
+.logo{font:34px "DM Serif Display";text-decoration:none;color:var(--brown)}.logo span{color:var(--rose)}
+.back{color:var(--brown);font-size:13px;font-weight:800;text-decoration:none}
+main{padding:65px 0 90px}.title{text-align:center;margin-bottom:42px}.eyebrow{text-transform:uppercase;letter-spacing:3px;font-size:11px;font-weight:800;color:var(--rose)}
+h1,h2,h3{font-family:"DM Serif Display";font-weight:400}h1{font-size:58px;margin:10px 0}.title p{color:var(--muted)}
+.checkout-grid{display:grid;grid-template-columns:1fr 400px;gap:30px;align-items:start}
+.box{background:#fff;border:1px solid var(--line);border-radius:15px;padding:28px;box-shadow:0 12px 35px #4b2e2510}.box h2{font-size:32px;margin:0 0 22px}
+.form{display:grid;gap:13px}.form label{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:1px}
+.form input,.form textarea,.form select{width:100%;padding:13px;border:1px solid var(--line);border-radius:6px;background:#fff;color:var(--brown);outline:none}.form input:focus,.form textarea:focus{border-color:var(--rose)}.form textarea{min-height:95px;resize:vertical}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.order-row{display:grid;grid-template-columns:58px 1fr auto;gap:12px;align-items:center;padding:12px 0;border-bottom:1px solid var(--line)}
+.order-row img{width:58px;height:58px;border-radius:7px;object-fit:cover}.order-row h4{margin:0;font-size:13px}.order-row small{color:var(--muted)}
+.total{display:flex;justify-content:space-between;font-size:18px;font-weight:800;padding-top:18px}.pay{width:100%;margin-top:20px;padding:15px;border:0;border-radius:6px;background:var(--brown);color:#fff;font-weight:800;cursor:pointer;font-size:14px}.pay:hover{background:#684238}
+.note{font-size:11px;color:#9a877e;line-height:1.6;text-align:center;margin-top:12px}
+.success{display:none;text-align:center;padding:30px}.success.show{display:block}.success-icon{width:65px;height:65px;border-radius:50%;background:var(--soft);display:grid;place-items:center;font-size:30px;margin:0 auto 18px}.success h2{font-size:38px}.success p{color:var(--muted);line-height:1.7}
+footer{background:#2f1d18;color:#eadbd1;text-align:center;padding:30px;font-size:12px}
+@media(max-width:800px){.checkout-grid{grid-template-columns:1fr}.summary{order:-1}}
+@media(max-width:520px){nav{height:65px}.logo{font-size:28px}main{padding:45px 0}h1{font-size:45px}.box{padding:20px}.row{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="top">SECURE CHECKOUT · CRUMB & CREAM BAKERY</div>
+<header><div class="container"><nav>
+<a class="logo" href="index.html">Crumb <span>&</span> Cream</a>
+<a class="back" href="index.html#shop">← Continue Shopping</a>
+</nav></div></header>
+
+<main>
+<div class="container">
+<div class="title"><div class="eyebrow">Almost there</div><h1>Complete your order</h1><p>Enter your delivery details and proceed to payment.</p></div>
+
+<div id="checkoutArea" class="checkout-grid">
+<section class="box">
+<h2>Delivery details</h2>
+<form id="checkoutForm" class="form" onsubmit="pay(event)">
+<div class="row">
+<div><label>Full name</label><input id="name" required placeholder="Your name"></div>
+<div><label>Phone number</label><input id="phone" required type="tel" placeholder="+91 90000 00000"></div>
+</div>
+<div><label>Email address</label><input id="email" required type="email" placeholder="you@example.com"></div>
+<div><label>Delivery address</label><textarea id="address" required placeholder="House / Flat, Street, Area"></textarea></div>
+<div class="row">
+<div><label>City</label><input id="city" required value="Bengaluru"></div>
+<div><label>PIN code</label><input id="pin" required pattern="[0-9]{6}" placeholder="560001"></div>
+</div>
+<div><label>Delivery preference</label><select id="delivery"><option>Standard delivery</option><option>Same-day delivery</option><option>Pickup from bakery</option></select></div>
+<div><label>Order notes</label><textarea id="notes" placeholder="Cake message, delivery instructions, etc."></textarea></div>
+<button class="pay" type="submit">Proceed to Payment →</button>
+<p class="note">Temporary demo payment. No real money will be charged.</p>
+</form>
+</section>
+
+<aside class="box summary">
+<h2>Your order</h2>
+<div id="items"></div>
+<div class="total"><span>Total</span><span id="total">₹0</span></div>
+</aside>
+</div>
+
+<div id="success" class="box success">
+<div class="success-icon">✓</div>
+<div class="eyebrow">Order received</div>
+<h2>Thank you for your order!</h2>
+<p>Your temporary demo payment was successful. This page is ready to be connected to a real Razorpay, Cashfree or other payment link.</p>
+<a class="pay" style="display:inline-flex;width:auto;padding:14px 28px;text-decoration:none" href="index.html">Back to bakery</a>
+</div>
+</div>
+</main>
+<footer>© 2026 Crumb & Cream Bakery · Freshly baked with love</footer>
+
+<script>
+const products=[
+{id:1,name:"Classic Chocolate Cake",price:850,img:"https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=300&q=80"},
+{id:2,name:"Red Velvet Celebration Cake",price:1050,img:"https://images.unsplash.com/photo-1586788224331-947f68671cf1?auto=format&fit=crop&w=300&q=80"},
+{id:3,name:"Butter Croissant",price:140,img:"https://images.unsplash.com/photo-1555507036-ab1f4038808a?auto=format&fit=crop&w=300&q=80"},
+{id:4,name:"Almond Danish",price:180,img:"https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=300&q=80"},
+{id:5,name:"Blueberry Muffin",price:120,img:"https://images.unsplash.com/photo-1607958996333-41aef7caefaa?auto=format&fit=crop&w=300&q=80"},
+{id:6,name:"Chocolate Chip Muffin",price:110,img:"https://images.unsplash.com/photo-1558303053-0e1f8f5a4f7a?auto=format&fit=crop&w=300&q=80"},
+{id:7,name:"Chocolate Chip Cookies",price:220,img:"https://images.unsplash.com/photo-1499636136210-6f4ee915583e?auto=format&fit=crop&w=300&q=80"},
+{id:8,name:"Butter Shortbread Box",price:260,img:"https://images.unsplash.com/photo-1558961363-fa8fdf82db35?auto=format&fit=crop&w=300&q=80"}];
+let cart=JSON.parse(localStorage.getItem("bakeryCart")||"[]");
+const money=n=>"₹"+n.toLocaleString("en-IN");
+let total=0;
+function render(){
+ let html="";
+ total=0;
+ if(!cart.length){html='<p style="color:#806f67">Your basket is empty. <a href="index.html#shop" style="font-weight:800">Shop now →</a></p>'}
+ else cart.forEach(x=>{let p=products.find(p=>p.id===x.id);if(!p)return;total+=p.price*x.qty;html+=`<div class="order-row"><img src="${p.img}"><div><h4>${p.name}</h4><small>${x.qty} × ${money(p.price)}</small></div><strong>${money(p.price*x.qty)}</strong></div>`});
+ document.getElementById("items").innerHTML=html;document.getElementById("total").textContent=money(total);
+}
+function pay(e){
+ e.preventDefault();
+ if(!cart.length){alert("Your basket is empty.");return}
+ const name=document.getElementById("name").value;
+ // Temporary demo payment. Replace this section with a real payment-link redirect.
+ // Example: window.location.href = "YOUR_RAZORPAY_PAYMENT_LINK";
+ localStorage.setItem("lastBakeryOrder",JSON.stringify({name,phone:document.getElementById("phone").value,address:document.getElementById("address").value,total,cart}));
+ document.getElementById("checkoutArea").style.display="none";
+ document.getElementById("success").classList.add("show");
+ localStorage.removeItem("bakeryCart");
+}
+render();
+</script>
+</body>
+</html>
